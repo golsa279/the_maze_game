@@ -66,7 +66,8 @@ class Player():
 class Treasure:
     def __init__(self):
         self.x=500
-        self.y=200 
+        self.y=200
+      
 
 #board
 walls = []
@@ -177,6 +178,7 @@ while running:
 
             if event.key == K_SPACE and end==True:
                 end = False
+                start = 0
                 
         elif event.type == pygame.locals.QUIT:
             running == False 
@@ -192,16 +194,19 @@ while running:
     size = pygame.transform.scale(img_player,(25,25))
     screen.blit(size,(player.x,player.y))
     #size2 = pygame.transform.scale(img_treasure,(25,25))
-    #screen.blit(size2,(treasure.x+12.5,treasure.y+12.5))  
+    #screen.blit(size2,(treasure.x+12.5,treasure.y+12.5))
+    if end == False:
+        start +=1     
+    
     if end==True:
         time = start
-        start = 0
         pygame.draw.rect(screen,"gold",(100,230,500,200))
-        draw_text(f"you win! time:{time}",font,TEXT_COLOR,200,260)
-        draw_text("press SPACE to restart",font,TEXT_COLOR,170,340)
+        draw_text(f"you win!",font,TEXT_COLOR,170,260)
+        draw_text(f"total time: {time}ms",font,"blue",170,310)
+        draw_text("press SPACE to restart",font,TEXT_COLOR,170,360)
     pygame.draw.rect(screen,"gold",(580,10,100,50))
-    draw_text(f'time: {start}' ,font2,TEXT_COLOR,590,20)    
-    start +=1    
+    draw_text(f'time: {start}' ,font2,TEXT_COLOR,580,20)    
+     
     pygame.display.update()
        
 pygame.quit()
