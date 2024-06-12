@@ -54,10 +54,60 @@ class Computer():
             stack.append((move_x,move_y))
             self.x =self.x + self.speed
 
+<<<<<<< HEAD:finalmaze.py
         if(self.x,self.y) in treasures:
                     print("computer win!")
                     computer_end()    
           
+=======
+stack=[]
+#computer
+class Computer():
+    def __init__(self):
+        self.x = 100
+        self.y = 50
+        self.speed = 25
+        
+    def move(self):
+        #print(stack)
+        move_x=self.x + self.speed
+        move_y=self.y
+        if (move_x,move_y)  in  walls or (move_x,move_y) in stack:
+            move_x=self.x 
+            move_y=self.y + self.speed
+            if (move_x,move_y)  in  walls or (move_x,move_y) in stack:
+                move_x=self.x - self.speed
+                move_y=self.y 
+                if (move_x,move_y)  in  walls or (move_x,move_y) in stack:
+                    move_x=self.x - self.speed
+                    move_y=self.y 
+                    if (move_x,move_y)  in  walls or (move_x,move_y) in stack:    
+                        x=stack.pop(-1)
+                        print(x)
+                        stack.append((self.x,self.y))
+                        print(stack)
+                    else:
+                        stack.append((self.x,self.y))
+                        self.y =self.y - self.speed        
+                else:
+                    stack.append((self.x,self.y)) 
+                    self.x =self.x - self.speed        
+            else:
+                stack.append((self.x,self.y))
+                self.y =self.y + self.speed       
+        else:
+            stack.append((move_x,move_y))
+            self.x =self.x + self.speed
+        if(self.x,self.y) in treasures:
+                    print("computer win!")
+                    computer_end()    
+        
+
+        
+
+        
+    
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
 #player
 class Player():
     
@@ -74,7 +124,13 @@ class Player():
             move_to_y=self.y
             if(move_to_x,move_to_y) not in  walls:
                 self.x =self.x - self.speed
+<<<<<<< HEAD:finalmaze.py
               
+=======
+            if(self.x,self.y) in treasures:
+                    print("you win!")
+                    player_end()        
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
             
 
         if (pressed_key[K_RIGHT]):
@@ -83,14 +139,29 @@ class Player():
             #print(move_to_x,move_to_y)
             if(move_to_x,move_to_y) not in  walls:
                 self.x =self.x + self.speed
+<<<<<<< HEAD:finalmaze.py
             
 
+=======
+            if(self.x,self.y) in treasures:
+                    print("you win!")
+                    player_end()        
+
+
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
         if (pressed_key[K_UP]):
             move_to_x=self.x 
             move_to_y=self.y - self.speed
             if(move_to_x,move_to_y) not in  walls :
                 self.y =self.y - self.speed
+<<<<<<< HEAD:finalmaze.py
             
+=======
+            if(self.x,self.y) in treasures:
+                    print("you win!")
+                    player_end()        
+
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
                 
                     
         if (pressed_key[K_DOWN]):
@@ -98,11 +169,18 @@ class Player():
             move_to_y=self.y + self.speed
             if(move_to_x,move_to_y) not in  walls:
                 self.y=self.y + self.speed
+<<<<<<< HEAD:finalmaze.py
 
         if(self.x,self.y) in treasures:
             print("you win!")
             player_end()        
 
+=======
+            if(self.x,self.y) in treasures:
+                    print("you win!")
+                    player_end()        
+
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
 
         
 #treasures
@@ -125,11 +203,19 @@ levels= [
 "XXXXXXXX  XX  XXXXXX   XXXXX",
 "XXXXXXXX  XX    XXXX   XXXXX",
 "XX    XXX                  X",
+<<<<<<< HEAD:finalmaze.py
 "XX    XXXXXXXXXXX  XXXXXXXXX",
 "XXX        XXXXXX   XX   XXX",
 "XXX                XX  XXXXX",
 "XXXXXXXXXXXXXXX    XX XXX  X",
 "XXXXXXXXX    XXX   XXXXX   X",
+=======
+"XX    XXXXXXXXXXXXXXXXXXXX X",
+"XXX        XXXXXXXXXXXXXXX X",
+"XXX                XXXXXXX X",
+"XXXXXXXXXXXXXXX     XXXXX  X",
+"XXXXXXXXXXXXXXXX    XXXXX  X",
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
 "XXXX   XXXXXXXXXXX         X",
 "XXXXX                      X",
 "XXXXX          XXXXXXXXXXX X",
@@ -139,8 +225,13 @@ levels= [
 "X     XXX        XXXXXX    X",
 "XXX   XXXXXXX              X",
 "XXX   XXXXXXXXXXXXXX   XXXXX",
+<<<<<<< HEAD:finalmaze.py
 "XXX   YXXXXXXXX  XXX   XXXXX",
 "XXX          XX  XX     TXXX",
+=======
+"XXX   YXXXXXXXXXXXXX   XXXXX",
+"XXX          XXXXXX     TXXX",
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
 "XXX          XXXXXX      XXX",
 "XXXXXXXXXXX          XXXXXXX",
 "XXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -227,9 +318,15 @@ while running:
             if event.key == K_ESCAPE:
                running = False
 
+<<<<<<< HEAD:finalmaze.py
             if event.key == K_SPACE and end1==True or end2 == True:
                 end1 = False
                 end2 = False
+=======
+            if event.key == K_SPACE and end1==True or end2 == False:
+                end1 = False
+                end2 =False
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
                 start = 0
                 
                 
@@ -249,21 +346,34 @@ while running:
     screen.blit(size,(player.x,player.y))
     #size2 = pygame.transform.scale(img_treasure,(25,25))
     #screen.blit(size2,(treasure.x+12.5,treasure.y+12.5))
+<<<<<<< HEAD:finalmaze.py
     if end1 == False and end2 == False:
+=======
+    if end1 == False or end2 == False:
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
         start +=1     
     
     if end1==True:
         time = start
         end1=True
+<<<<<<< HEAD:finalmaze.py
         pygame.draw.rect(screen,"gold",(0,0,700,700))
+=======
+        pygame.draw.rect(screen,"gold",(100,230,500,200))
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
         draw_text(f"you win!",font,TEXT_COLOR,170,260)
         draw_text(f"total time: {time}ms",font,"blue",170,310)
         draw_text("press SPACE to restart",font,TEXT_COLOR,170,360)
     if end2==True:
         time = start
+<<<<<<< HEAD:finalmaze.py
         stack = []
         end2=True
         pygame.draw.rect(screen,"red",(0,0,700,700))
+=======
+        end2=True
+        pygame.draw.rect(screen,"red",(100,230,500,200))
+>>>>>>> 4c4d0d1dfddae81e9ff89534cc67e58e8cf09513:maze4.py
         draw_text(f"computer win!",font,TEXT_COLOR,170,260)
         draw_text(f"total time: {time}ms",font,"blue",170,310)
         draw_text("press SPACE to restart",font,TEXT_COLOR,170,360)
